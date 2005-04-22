@@ -1,0 +1,13 @@
+index.html
+ChangeLog
+Build.PL
+LICENSE
+lib/CAM/DBF.pm
+MANIFEST
+Makefile.PL
+test.pl
+bin/dbf2csv
+bin/packdbf
+bin/debugdbf
+META.yml
+README
