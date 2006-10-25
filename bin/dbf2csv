@@ -1,10 +1,15 @@
 #!/usr/bin/perl -w
 
+use warnings;
 use strict;
 use CAM::DBF;
 use Getopt::Long;
 use Pod::Usage;
 use Carp;
+
+our $VERSION = '1.02';
+
+##no critic
 
 my %opts = (
             "-field"      =>  ",",
@@ -33,7 +38,7 @@ GetOptions("f|field=s",   \$opts{"-field"},
            "i|info",      \$info,
            "s|samplerow=s", \$samplerow,
            ) or pod2usage(1);
-pod2usage(-exitstatus => 0, -verbose => 2) if ($help);
+pod2usage(-exitstatus => 0, -verbose => 2, -input => \*DATA) if ($help);
 
 foreach my $key (keys %opts)
 {
@@ -139,11 +144,13 @@ foreach my $file (@ARGV)
    close(OUT) if ($fout ne "-");
 }
 
-__END__
+__DATA__
+
+=for stopwords dbf2csv DBF dBASE
 
 =head1 NAME
 
-dbf2csv - Convert dBASE .dbf files to text files
+dbf2csv - Convert dBASE DBF files to text files
 
 =head1 SYNOPSIS
 
@@ -180,21 +187,21 @@ dbf2csv [options] [file ...]
 =head1 DESCRIPTION
 
 One or more files specified on the command line (or from standard
-input if none specified, or "-" is specified) are converted from
+input if none specified, or C<-> is specified) are converted from
 dBASE DBF format to text delimited files.  Delimiters and escape
 characters can be indicated on the command line.  Output is typically
-written to <file>.txt, given input <file>.dbf.  The output extension
-can be changed with the --outext parameter.  Alternatively, an output
-file can be manually specified via the -o argument.  If --outfile is
-"-", output will be written to standard output.
+written to C<< <file>.txt >>, given input C<< <file>.dbf >>.  The output extension
+can be changed with the C<--outext> parameter.  Alternatively, an output
+file can be manually specified via the C<-o> argument.  If C<--outfile> is
+C<->, output will be written to standard output.
 
-If --info is specified, header metadata is printed to standard output
+If C<--info> is specified, header metadata is printed to standard output
 for all specified DBF files.  All other flags are ignored and no row
 data are output.
 
 =head1 SEE ALSO
 
-CAM::DBF(3)
+L<CAM::DBF>
 
 =head1 AUTHOR
 

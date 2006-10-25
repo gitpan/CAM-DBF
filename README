@@ -3,7 +3,7 @@ CAM::DBF - Perl extension for reading and writing dBASE III DBF files
 
 LICENSE
 
-Copyright 2005 Clotho Advanced Media, Inc., <cpan@clotho.com>
+Copyright 2006 Clotho Advanced Media, Inc., <cpan@clotho.com>
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
@@ -33,13 +33,11 @@ or
 
 DESCRIPTION
 
-This package facilitates reading dBASE III PLUS DBF files.  This is
-made possible by documentation generously released by Borland at:
+This package facilitates reading and writing dBASE III PLUS DBF files.
+This is made possible by documentation generously released by Borland
+at http://community.borland.com/article/0,1410,15838,00.html
 
-  http://community.borland.com/article/0%2C1410%2C15838%2C00.html
+Currently, only version III PLUS files are readable.  This module does
+not support dBASE version IV or 5.0 files.  See XBase for better
+support.
 
-Currently, only version III PLUS files are readable.  Support has not
-yet been added for dBASE version IV or 5.0 files.
-
-This library also supports writing dBASE files, but the writing
-interface is not as polished as the reading interface.
